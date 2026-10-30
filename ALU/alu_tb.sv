@@ -1,5 +1,3 @@
-`include "alu.sv"
-
 module stimulus ();
     reg [31:0] A, B;
     reg [3:0] ALUcontrol;
@@ -8,7 +6,7 @@ module stimulus ();
 
 
     // instantiating modules
-    ALU ALUmodule(.in1(A), .in2(B), .alu_control(ALUcontrol), .zero_flag(ZERO), .alu_result(ALUresult));
+    ALU ALU_module(.int1(A), .int2(B), .alu_control(ALUcontrol), .zero_flag(ZERO), .alu_result(ALUresult));
 
     // setting up waveform
     initial begin
@@ -22,18 +20,18 @@ module stimulus ();
 
     // test conditions
     initial begin
-        A = 23; B = 42;  ALUControl = 4'b0000;
-    #20 A = 23; B = 42;  ALUControl = 4'b0001;
-    #20 A = 23; B = 42;  ALUControl = 4'b0010;
-    #20 A = 23; B = 42;  ALUControl = 4'b0100;
-    #20 A = 23; B = 42;  ALUControl = 4'b1000;
-    #20 A = 42; B = 23;  ALUControl = 4'b1000;
-    #20 A = 42; B = 23;  ALUControl = 4'b0100;
+        A = 23; B = 42;  ALUcontrol = 4'b0000;
+    #20 A = 23; B = 42;  ALUcontrol = 4'b0001;
+    #20 A = 23; B = 42;  ALUcontrol = 4'b0010;
+    #20 A = 23; B = 42;  ALUcontrol = 4'b0100;
+    #20 A = 23; B = 42;  ALUcontrol = 4'b1000;
+    #20 A = 42; B = 23;  ALUcontrol = 4'b1000;
+    #20 A = 42; B = 23;  ALUcontrol = 4'b0100;
     end
 
     // finish after 150 clock cycles
     initial
-    #150 $finish
+    #150 $finish;
 
 
 endmodule

@@ -1,18 +1,8 @@
-TOP = ifu
-
-RTL = $(TOP).sv
-TB  = $(TOP)_tb.sv
+TOP = stimulus
 
 build:
-	verilator --binary --trace $(RTL) $(TB)
+	verilator --binary --trace --top-module $(TOP) ifu.sv ifu_tb.sv
 
-run: build
+wave: build
 	./obj_dir/V$(TOP)
-
-wave: run
-	surfer $(TOP).vcd
-
-clean:
-	rm -rf obj_dir *.vcd *.log
-
-all: run
+	surfer waveform.vcd

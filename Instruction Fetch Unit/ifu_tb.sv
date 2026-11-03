@@ -3,7 +3,7 @@ module stimulus (
 );
 
     reg CLOCK, RESET;
-    wire [31:0] OUTOPUT;
+    wire [31:0] OUTPUT;
 
     // init IFU module
     initial 

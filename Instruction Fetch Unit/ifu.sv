@@ -19,7 +19,7 @@ reg [31:0] PC = 32'b0;      // 32 bit program counter is init to zero
         if (reset == 1)     // if reset is 1, clear the PC
         PC <= 0;
         else
-        PC <= PC + 4       // increment PC on positive clock edge
+        PC <= PC + 4;       // increment PC on positive clock edge
     end
 
 

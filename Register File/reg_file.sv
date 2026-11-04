@@ -29,7 +29,7 @@ module REG_FILE (
     integer i = 0;
 
     // when reset is triggered, we init the registers with some values
-    always @(postedge reset)
+    always @(posedge reset)
     begin
         reg_memory[0] = 32'h0;
          reg_memory[1] = 32'h1;
@@ -72,7 +72,7 @@ module REG_FILE (
     assign read_data2 = reg_memory[read_reg_num2];
 
     // if clock edge is positive and regwrite is 1, we write data to specified register
-    always @(postedge clock)
+    always @(posedge clock)
     begin
 
         if (regwrite) begin

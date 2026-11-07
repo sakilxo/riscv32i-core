@@ -8,6 +8,7 @@ module stimulus ();
     reg regwrite;
     reg clock;
     reg reset;
+    reg zero_flag;
 
 
     DATAPATH DATAPATH_module (

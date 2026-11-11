@@ -8,7 +8,7 @@ module CONTROL (
     input [2:0] funct3,
     input [6:0] opcode,
     output reg [3:0] alu_control,
-    output reg regwrite_control,
+    output reg regwrite_control
 );
 
     always @(funct3 or funct7 or opcode)
